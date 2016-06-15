@@ -28,11 +28,7 @@ Para comenzar el servidor es necesario realizar:
 npm start
 ```
 
-Navegar la aplicación desde `http://localhost:8000/index.html`.
-
-### Corrida de Pruebas Unitarias
-
-#Si alcanzo...
+Navegar la aplicación desde `http://localhost:8000`.
 
 ## Actualizando Angular
 
@@ -47,22 +43,17 @@ Actualizacion de dependencias de Angular mediante (versiones en `bower.json`):
 ```
 bower update
 ```
+##Cambio de `.json` en memoria por API sobre http
 
-### Corrida durante Desarrollo
+El proyecto hace uso del servicio `$http`, de modo que un cambio en las lineas 20-21 permitiria el uso de una dirección http desde la cual obtener la información en formato `.json`, siempre y cuando la dirección efectivamente apunte a un archivo de este tipo:
 
-The angular-seed project comes preconfigured with a local development webserver.  It is a node.js
-tool called [http-server][http-server].  You can start this webserver with `npm start` but you may choose to
-install the tool globally:
-
+De este modo, la linea 20
 ```
-sudo npm install -g http-server
+$http.get('view1/news_mock.json')
 ```
-
-Then you can start your own development web server to serve static files from a folder by
-running:
-
+Se cambiaria por la linea 21 con la respectiva URL que corresponda al API
 ```
-http-server -a localhost -p 8000
+$http.get('<dirección http desde la que se quiera cargar el .json>')
 ```
 [Angular-seed]: https://github.com/angular/angular-seed
 [git]: http://git-scm.com/
