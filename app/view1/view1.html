@@ -1,26 +1,45 @@
-<div id="MainMenu">
-    <div class="list-group panel">
-        <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Item 3</a>
-        <div class="collapse" id="demo3">
-            <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Subitem 1 <i class="fa fa-caret-down"></i></a>
-            <div class="collapse list-group-submenu" id="SubMenu1">
-                <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 1 a</a>
-                <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 2 b</a>
-                <a href="#SubSubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubSubMenu1">Subitem 3 c <i class="fa fa-caret-down"></i></a>
-                <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
-                    <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Sub sub item 1</a>
-                    <a href="#" class="list-group-item" data-parent="#SubSubMenu1">Sub sub item 2</a>
+<div class="container">
+    <div class="row" id="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="panel-group" id="accordion">
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"  style = "background: #d58512;">
+                    <h4 class="panel-title">
+                        <a   ng-click="showing()"><span class="glyphicon glyphicon-dashboard">
+                        </span><strong>Noticias    {{current.title}}</strong></a>
+                    </h4>
                 </div>
-                <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a>
+                <div class = "panel panel-collapse" id="collapseAll"  ng-show = "show">
+                <div class="panel panel-default" ng-repeat = "n in news">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a name = "{{n.id}}" ng-click="selectNews($event)"><span class="glyphicon glyphicon-asterisk">
+                        </span>{{n.title}}</a>
+                        </h4>
+                    </div>
+                    <div id="collapseID" class="panel-default" ng-show="n.selected">
+                        <div class="panel-collapse" style=" display: flex; justify-content:center; width: 100%;">
+                           <div class="img-rounded" style =" margin: 2px;  ">
+                               <img src = " {{n.image}} " alt = "{{n.id}}" style =" border-radius: 20px; width: 90%; "/>
+                           </div>
+                            <div class="text-info" style ="display: flex;
+                                    justify-content: center;
+                                    align-content: center;
+                                    flex-direction: column;
+                                    text-align: center; width: 50%;">
+                               <strong>{{n.title}}</strong>
+                                <br>
+                                <span>{{n.content}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                    </div>
             </div>
-            <a href="javascript:;" class="list-group-item">Subitem 2</a>
-            <a href="javascript:;" class="list-group-item">Subitem 3</a>
         </div>
-        <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Item 4</a>
-        <div class="collapse" id="demo4">
-            <a href="" class="list-group-item">Subitem 1</a>
-            <a href="" class="list-group-item">Subitem 2</a>
-            <a href="" class="list-group-item">Subitem 3</a>
-        </div>
+
     </div>
 </div>
